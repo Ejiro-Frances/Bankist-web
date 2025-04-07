@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/icon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Bankist | When Banking meets Minimalist</title>
+    <script defer src="./js/script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo-container">
+        <img class="logo" src="./assets/img/logo.png" alt="logo" />
+      </div>
+      <nav class="nav">
+        <ul class="nav__lists">
+          <li><a class="nav__list" href="#">Features</a></li>
+          <li><a class="nav__list" href="#">Operations</a></li>
+          <li><a class="nav__list" href="#">Testimonials</a></li>
+          <li><a class="nav__list nav__list-cta" href="#">Open account</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- hero section -->
+      <section class="hero__container">
+        <div class="hero__content">
+          <h1 class="hero__content-title">
+            When
+            <span class="highlight">banking</span>
+            meets
+            <span class="highlight">Minimalist</span>
+          </h1>
+
+          <p class="hero__content-description">A simpler banking experience for a simpler life.</p>
+          <a href="#" class="btn__hero">Learn more &darr;</a>
+        </div>
+
+        <div class="hero__img--container">
+          <img
+            class="hero__img"
+            src="./assets/img/hero.png"
+            alt="keyboard, a plant and $1 bill"
+          />
+        </div>
+      </section>
+
+      <!-- Features section -->
+      <section class="section-container">
+        <!-- Title -->
+        <div class="section__title">
+          <h2 class="section__header">features</h2>
+          <h3 class="section__description">
+            Everything you need in a modern bank and more.
+          </h3>
+        </div>
+
+        <!--  divided divs-->
+        <article class="">
+          <!-- 01 -->
+          <div class="features">
+            
+              <img src="./assets/img/digital-lazy.jpg" data-src="./assets/img/digital.png" alt="Desktop" class="feature__img" />
+           
+
+            <div class="features__feature">
+              <div class="features__icon">
+                 <svg>
+                <use xlink:href="assets/img/icons.svg#icon-monitor"></use>
+                </svg>
+              </div>
+              <h4 class="features__title">100% digital bank</h4>
+              <p class="features__description">Banking online and not having to find a physical branch</p>
+            </div>
+          </div>
+
+          <!-- 02 -->
+          <div class="features">
+            <div class="features__feature">
+              <div class="features__icon">
+                 <svg>
+                <use xlink:href="assets/img/icons.svg#icon-trending-up"></use>
+                </svg>
+              </div>
+              <h4 class="features__title">Watch your money grow</h4>
+              <p class="features__description">Banking online and not having to find a physical branch</p>
+            </div>
+
+              <img src="./assets/img/grow-lazy.jpg" data-src="./assets/img/grow.png" alt="Plant" class="feature__img" />
+           
+          </div>
+
+
+          <!-- 03 -->
+ 
+          <div class="features">
+            
+              <img src="./assets/img/card-lazy.jpg" data-src="./assets/img/card.png" alt="Credit card" class="feature__img" />
+           
+
+            <div class="features__feature">
+              <div class="features__icon">
+                 <svg>
+                <use xlink:href="assets/img/icons.svg#icon-credit-card"></use>
+                </svg>
+              </div>
+              <h4 class="features__title">Watch your money grow</h4>
+              <p class="feature__description">Banking online and not having to find a physical branch</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Operations -->
+      <section class="section-container">
+        <!-- Title -->
+        <div class="section__title">
+          <h2 class="section__header">operations</h2>
+          <h3 class="section__description">
+            Everything as simple as possible, but no simpler.
+          </h3>
+        </div>
+
+        <!-- Tabbed Component -->
+         <div class="operations">
+<div class="operations__tab-container">
+  <!-- button 01 -->
+  <button class="btn operations__tab operations__tab--1 operations__tab--active" data-tab="1"> <span>01</span>Instant transfers</button>
+
+  <!-- button 02 -->
+    <button class="btn operations__tab operations__tab--2" data-tab="2"> <span>02</span>Instant Loan</button>
+
+    <!-- button 03 -->
+      <button class="btn operations__tab operations__tab--3" data-tab="3"> <span>03</span> Instant Closing</button>
+</div>
+
+<!-- operations content -->
+ <div class="operations__content operations__content-active">
+            <div class="operations__icon operations__icon--1">
+            <svg>
+              <use xlink:href="assets/img/icons.svg#icon-upload"></use>
+            </svg>
+          </div>
+          <div>
+            <h5 class="operations__header">Tranfser money to anyone, instantly! No fees, no BS.</h5>
+
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
+          </div>
+ </div>
+         </div>
+      </section>
+
+      <!-- Testimonial -->
+        <section class="section-container">
+        <!-- Title -->
+        <div class="section__title">
+          <h2 class="section__header">not sure yet?</h2>
+          <h3 class="section__description">
+            Millions of Bankists are already making their lifes simpler.
+          </h3>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div>
+            <h5>The best day to join Bankist was one year ago. The second best is today</h5>
+            <button>Open your free account today!</button>
+        </div>
+        <div>
+            <ul class="footer__links">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Terms of use</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+<div>
+    <img src="./assets/img/icon.png" alt="logo">
+</div>
+            <p>&copy; by <span>Jonas Schmedtmann.</span> Use for learning or your portfolio. Don't use to teach. Don't claim as your own product.</p>
+        </div>
+        </footer>
+  </body>
+</html>
