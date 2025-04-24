@@ -23,32 +23,6 @@ html {
   font-size: 62.5%;
 }
 
-/* ul {
-  list-style: none;
-} */
-
-/* a {
-  text-decoration: none;
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  cursor: pointer;
-} */
-
-/* button {
-  cursor: pointer;
-  border: none;
-}
-
-button:focus {
-  outline: 1px solid var(--color-primary);
-} */
-
-/* p {
-  color: #666;
-  line-height: 1.5;
-} */
-
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
@@ -59,9 +33,10 @@ body {
   line-height: 1.5;
 }
 
-/* ======
+/* ==================================================
 GENERAL
-======== */
+======== ============================================*/
+
 .section {
   padding: 15rem 3rem;
   border-top: 1px solid #ddd;
@@ -101,9 +76,10 @@ h4 {
   font-weight: 500;
 }
 
-/* ===========================
+/* ==================================================
 buttons
-=============================== */
+=================================================== */
+
 .btn {
   display: inline-block;
   background: var(--color-primary);
@@ -136,24 +112,6 @@ buttons
   transition: all 0.3s;
 }
 
-/* .btn-primary {
-  color: #000000;
-  border-radius: 10rem;
-  padding: 2rem;
-} */
-
-/* .btn__hero {
-  color: var(--color-primary);
-  padding: 0.5rem;
-  border-bottom: 1px solid var(--color-primary);
-  font-size: 1.8rem;
-}
-
-.btn__hero:hover,
-.btn__hero:active {
-  color: var(--color-primary-darker);
-} */
-
 img {
   transition: filter 0.5s;
 }
@@ -162,7 +120,10 @@ img {
   filter: blur(20px);
 }
 
-/* header */
+/* ==================================================
+HEADER 
+====================================================*/
+
 .header {
   max-width: 130rem;
   margin: 2rem auto;
@@ -228,8 +189,10 @@ img {
   background: var(--color-primary-darker);
 }
 
-/* --------------------- */
-/* Hero Section */
+/* ==================================================
+ HERO SECTION
+ ================================================== */
+
 .hero__container {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -276,7 +239,9 @@ img {
   grid-row: 1 / span 4;
 }
 
-/* Section for features */
+/* ==================================================
+FEATURES
+==================================================== */
 
 .features {
   display: grid;
@@ -287,8 +252,6 @@ img {
 
 .features__img {
   width: 100%;
-  /* height: 100%; */
-  /* border-radius: 0.5rem; */
 }
 
 .features__feature {
@@ -321,7 +284,10 @@ img {
   margin-bottom: 1rem;
 }
 
-/* OPERATIONS */
+/* ==================================================
+OPERATIONS
+=================================================== */
+
 .operations {
   background: #fff;
   max-width: 100rem;
@@ -330,21 +296,10 @@ img {
 
 .operations__tab-container {
   display: flex;
-  /* gap: 2rem; */
   justify-content: center;
-  /* align-items: center; */
 }
 
 .operations__tab {
-  /* display: flex; */
-  /* justify-content: center;
-  align-items: center;
-  gap: 0.8rem;
-  font-weight: 700;
-  font-size: 1.8rem;
-  text-transform: capitalize;
-  transform: translateY(-50%);
-  transform-origin: all 0.3s ease-in-out; */
   margin-right: 2.5rem;
   transform: translateY(-50%);
 }
@@ -441,7 +396,10 @@ img {
   fill: var(--color-tertiary);
 }
 
-/* SLIDER */
+/* ==================================================
+SLIDER
+==================================================== */
+
 .slider {
   max-width: 100rem;
   height: 50rem;
@@ -528,10 +486,14 @@ img {
   opacity: 1;
 }
 
-/* TESTIMONIALS */
+/* ==================================================
+TESTIMONIALS
+==================================================== */
+
 .testimonial {
   width: 65%;
   position: relative;
+  margin: 0 auto;
 }
 
 .testimonial::before {
@@ -588,7 +550,10 @@ img {
   margin-bottom: 4rem;
 }
 
-/* SIGNUP */
+/* ==================================================
+SIGNUP
+=================================================== */
+
 .section--sign-up {
   background-color: #37383d;
   border-top: none;
@@ -610,7 +575,10 @@ img {
   margin-top: 6rem;
 }
 
-/* FOOTER */
+/* ==================================================
+FOOTER
+=====================================================*/
+
 .footer {
   padding: 10rem 3rem;
   background-color: #37383d;
@@ -650,7 +618,10 @@ img {
   font-size: 1.4rem;
 }
 
-/* MODAL WINDOW */
+/* ==================================================
+MODAL WINDOW 
+====================================================*/
+
 .modal {
   position: fixed;
   top: 50%;
@@ -725,7 +696,10 @@ img {
   opacity: 0;
 }
 
-/* COOKIE MESSAGE */
+/* ==================================================
+COOKIE MESSAGE
+=================================================== */
+
 .cookie-message {
   display: flex;
   align-items: center;
