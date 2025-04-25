@@ -27,8 +27,11 @@
           id="logo"
           designer="Jonas"
         />
+<div class="nav__content" role="group" aria-roledescription="container holding the hamburger menu">
+<button class="hamburger" open> = </button>
+<button class="hamburger" close> &times;</button>
 
-        <ul class="nav__links">
+        <ul class="nav__links nav__links--active">
           <li class="nav__item">
             <a class="nav__link" href="#section--1">Features</a>
           </li>
@@ -39,11 +42,12 @@
             <a class="nav__link" href="#section--3">Testimonials</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link nav__link--btn btn--show-modal" href="#">
+            <a class="nav__link nav__link--btn btn--show-modal" href="#form--modal">
               Open account
             </a>
           </li>
         </ul>
+        </div>
       </nav>
     </header>
 
@@ -94,7 +98,7 @@
               class="features__img lazy-img"
             />
 
-            <div class="features__feature">
+            <div class="features__feature features__feature--01">
               <div class="features__icon">
                 <svg>
                   <use xlink:href="assets/img/icons.svg#icon-monitor"></use>
@@ -105,10 +109,10 @@
                 Banking online and not having to find a physical branch
               </p>
             </div>
-          </div>
+          <!-- </div> -->
 
           <!-- 02 -->
-          <div class="features__feature">
+          <div class="features__feature features__feature--02">
             <!-- <div class="features__feature"> -->
               <div class="features__icon">
                 <svg>
@@ -127,7 +131,7 @@
               alt="Plant"
               class="features__img lazy-img"
             />
-          </div>
+          <!-- </div> -->
 
           <!-- 03 -->
 
@@ -139,7 +143,7 @@
               class="features__img lazy-img"
             />
 
-            <div class="features__feature">
+            <div class="features__feature features__feature--03">
               <div class="features__icon">
                 <svg>
                   <use xlink:href="assets/img/icons.svg#icon-credit-card"></use>
@@ -150,7 +154,7 @@
                 Banking online and not having to find a physical branch
               </p>
             </div>
-          </div>
+          <!-- </div> -->
         </article>
       </section>
 
@@ -197,7 +201,7 @@
               </svg>
             </div>
               <h5 class="operations__header">
-                Tranfser money to anyone, instantly! No fees, no BS.
+                Transfer money to anyone, instantly! No fees, no BS.
               </h5>
 
               <p>
@@ -246,30 +250,35 @@
         </div>
       </section>
 
-      <!-- Testimonial -->
-      <section class="section testimonial" id="section--3">
-        <!-- Title -->
-        <div class="section__title section__title--testimonials">
-          <h2 class="section__description">Not sure yet?</h2>
-          <h3 class="section__header">
-            Millions of Bankists are already making their lifes simpler.
-          </h3>
+      <section class="section" id="section--3">
+      <div class="section__title section__title--testimonials">
+        <h2 class="section__description">Not sure yet?</h2>
+        <h3 class="section__header">
+          Millions of Bankists are already making their lives simpler.
+        </h3>
+      </div>
 
-          <div class="slider">
-            <div class="slide">
-              <div class="testimonial">
-                <h5 class="testimonial__header">Best financial decision!</h5>
+      <div class="slider">
+        <div class="slide">
+          <div class="testimonial">
+            <h5 class="testimonial__header">Best financial decision ever!</h5>
+            <blockquote class="testimonial__text">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Accusantium quas quisquam non? Quas voluptate nulla minima
+              deleniti optio ullam nesciunt, numquam corporis et asperiores
+              laboriosam sunt, praesentium suscipit blanditiis. Necessitatibus
+              id alias reiciendis, perferendis facere pariatur dolore veniam
+              autem esse non voluptatem saepe provident nihil molestiae.
+            </blockquote>
+            <address class="testimonial__author">
+              <img src="./assets/img/user-1.jpg" alt="" class="testimonial__photo" />
+              <h6 class="testimonial__name">Aarav Lynn</h6>
+              <p class="testimonial__location">San Francisco, USA</p>
+            </address>
+          </div>
+        </div>
 
-                <blockquote class="testimonial__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut sit consequatur reprehenderit reiciendis, neque nemo, commodi sapiente magnam aspernatur, iste asperiores? Quis esse praesentium quibusdam quaerat </blockquote>
-                <address class="testimonial_author">
-                  <img src="./assets/img/user-1.jpg" alt="user" class="testimonial__photo">
-                  <h6 class="testimonial__location">San Francisco, USA</h6>
-                </address>
-              </div>
-            </div>
-
-            <!-- 02 -->
-               <div class="slide">
+        <div class="slide">
           <div class="testimonial">
             <h5 class="testimonial__header">
               The last step to becoming a complete minimalist
@@ -282,7 +291,7 @@
               deserunt exercitationem deleniti.
             </blockquote>
             <address class="testimonial__author">
-              <img src="./assets/img/user-2.jpg" alt="user" class="testimonial__photo" />
+              <img src="./assets/img/user-2.jpg" alt="" class="testimonial__photo" />
               <h6 class="testimonial__name">Miyah Miles</h6>
               <p class="testimonial__location">London, UK</p>
             </address>
@@ -309,18 +318,12 @@
             </address>
           </div>
         </div>
-          </div>
-       
-        <div>
-         
-         <button class="slider__btn slider__btn--left">&larr;</button>
+
+        <button class="slider__btn slider__btn--left">&larr;</button>
         <button class="slider__btn slider__btn--right">&rarr;</button>
         <div class="dots"></div>
-        </div>
-         </div>
-      </section>
-    </main>
-
+      </div>
+    </section>
 
       <section class="section section--sign-up">
         <h3 class="section__header">
@@ -331,11 +334,9 @@
           Open your free account today!
         </button>
       </section>
+  </main>
 
-          <footer class="footer">
-
-         
-    
+  <footer class="footer">
         <ul class="footer__nav">
           <li class="footer__item"><a class="footer__link" href="#">About</a></li>
           <li class="footer__item"><a class="footer__link" href="#">Pricing</a></li>
@@ -345,9 +346,11 @@
           <li class="footer__item"><a class="footer__link" href="#">Blog</a></li>
           <li class="footer__item"><a class="footer__link" href="#">Contact Us</a></li>
         </ul>
+
         <div>
           <img src="./assets/img/icon.png" alt="logo" class="footer__logo" />
         </div>
+
        <p class="footer__copyright">
         &copy; Copyright by
         <a
@@ -362,22 +365,71 @@
     </footer>
 
     <!-- sign in -->
-       <div class="modal hidden">
+    <section class="modal modal__sign-in hidden" id="form--modal">
       <button class="btn--close-modal">&times;</button>
       <h2 class="modal__header">
         Open your bank account <br />
-        in just <span class="highlight">5 minutes</span>
+        in just <span class="highlight"> 5 minutes</span>
       </h2>
-      <form class="modal__form">
-        <label>First Name</label>
-        <input type="text" />
-        <label>Last Name</label>
-        <input type="text" />
-        <label>Email Address</label>
-        <input type="email" />
-        <button class="btn">Next step &rarr;</button>
+      <form class="modal__form" novalidate>
+
+        <!-- first name -->
+         <div class="form--box">
+          <label for="firstName">First Name*</label>
+          <span class="error-message hidden" aria-errormessage="Enter first name">Enter first name</span>
+          <input type="text" id="firstName" name="firstName" placeholder="John" required aria-required="true" />
+        </div>
+
+        <!-- last name -->
+        <div class="form--box">
+        <label for="lastName">Last Name*</label>
+          <span class="error-message hidden" aria-errormessage="Enter last name">Enter last name</span>
+          <input type="text" id="lastName" name="lastName" placeholder="Doe" required aria-required="true"/>
+         </div>
+
+        <!-- email -->
+         <div class="form--box">
+          <label for="email">Email Address*</label>
+          <span class="error-message hidden" aria-errormessage="Enter email address">Enter email address</span>
+          <input type="email" id="email" name="email" placeholder="johndoe@io.com" required aria-required="true" />
+        </div>
+
+ <!-- password -->
+         <div class="form--box">
+          <label for="password">Password*</label>
+          <span class="error-message hidden" aria-errormessage="Enter a password">Enter password</span>
+          <input type="password" id="password" name="password" required aria-required="true" placeholder="******" />
+        </div>
+
+        <button class="btn btn--form" id="btn--sign-in">Next step &rarr;</button>
       </form>
-    </div>
+    </section>
     <div class="overlay hidden"></div>
+
+     <!-- Log in -->
+     <section class="modal__log-in modal hidden">
+      <a href="#">
+        <img src="./assets/img/logo.png" alt="Logo">
+      </a>
+<h2 class="modal__header">Log into your account</h2>
+
+<form novalidate class="modal__form">
+
+  <div class="form--box">
+    <label for="user-email">Email address*</label>
+     <span class="error-message hidden" aria-errormessage="Enter email address">Enter email address</span>
+    <input type="user-email" id="user-email" name="email" placeholder="johndoe@io.com" required aria-required="true" />
+  </div>
+
+   <!-- password -->
+         <div class="form--box">
+          <label for="user-password">Password*</label>
+          <span class="error-message hidden" aria-errormessage="Enter a password">Enter password</span>
+          <input type="password" id="user-password" name="user-password" required aria-required="true" placeholder="******" />
+        </div>
+
+         <button class="btn btn--form" id="btn--log-in">Log in &rarr;</button>
+</form>
+     </section>
   </body>
 </html>
