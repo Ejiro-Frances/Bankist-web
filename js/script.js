@@ -33,7 +33,7 @@ const btnLogIn = document.querySelector("#btn--log-in");
 
 // open and close hamburger
 const openMobile = function (e) {
-  navContent.classList.toggle("nav__content--active");
+  nav.classList.toggle("nav__content--active");
 };
 
 hamburgers.forEach((ham) => ham.addEventListener("click", openMobile));
@@ -41,7 +41,7 @@ hamburgers.forEach((ham) => ham.addEventListener("click", openMobile));
 // close hamburger when a link is clicked
 navLink.forEach((link) =>
   link.addEventListener("click", function () {
-    navContent.classList.remove("nav__content--active");
+    nav.classList.remove("nav__content--active");
   })
 );
 
@@ -66,229 +66,223 @@ if (btnCloseModal) {
 
 // when the overlay is clicked, close modal
 // overlay.addEventListener("click", closeModal);
+overlay.addEventListener("click", function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
 
-if (window.location.href.includes("index.html")) {
-  overlay.addEventListener("click", function () {
-    modal.classList.add("hidden");
-    overlay.classList.add("hidden");
+  if (!modalLogIn.classList.contains("hidden"))
+    modalLogIn.classList.add("hidden");
+});
 
-    if (!modalLogIn.classList.contains("hidden"))
-      modalLogIn.classList.add("hidden");
-  });
+// Add keyboard functions
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
 
-  // Add keyboard functions
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-      closeModal();
-    }
-  });
+// hero btn scrolling
+btnScrollTo.addEventListener("click", function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  section1.scrollIntoView({ behavior: "smooth" });
+});
 
-  // hero btn scrolling
-  btnScrollTo.addEventListener("click", function (e) {
-    const s1coords = section1.getBoundingClientRect();
-    section1.scrollIntoView({ behavior: "smooth" });
-  });
+// nav buttons
+navLinks.addEventListener("click", function (e) {
+  e.preventDefault();
 
-  // nav buttons
-  navLinks.addEventListener("click", function (e) {
-    e.preventDefault();
+  // Matching strategy
+  if (e.target.classList.contains("nav__link")) {
+    const id = e.target.getAttribute("href");
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  }
+});
 
-    // Matching strategy
-    if (e.target.classList.contains("nav__link")) {
-      const id = e.target.getAttribute("href");
-      document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-    }
-  });
+// Menu fade animation
+const handleHover = function (e) {
+  if (e.target.classList.contains("nav__link")) {
+    const link = e.target;
+    const nav = link.closest(".nav");
+    const siblings = nav.querySelectorAll(".nav__link");
+    const logo = nav.querySelector("img");
 
-  // Menu fade animation
-  const handleHover = function (e) {
-    if (e.target.classList.contains("nav__link")) {
-      const link = e.target;
-      const nav = link.closest(".nav");
-      const siblings = nav.querySelectorAll(".nav__link");
-      const logo = nav.querySelector("img");
-
-      siblings.forEach((el) => {
-        if (el !== link) el.style.opacity = this;
-      });
-      logo.style.opacity = this;
-    }
-  };
-
-  // Passing "argument" into handler
-  nav.addEventListener("mouseover", handleHover.bind(0.5));
-  nav.addEventListener("mouseout", handleHover.bind(1));
-
-  // Sticky navigation
-  const headerHeight = nav.getBoundingClientRect().height;
-
-  const stickyNav = function (entries) {
-    const [entry] = entries;
-    //   console.log(entry);
-
-    if (!entry.isIntersecting) nav.classList.add("sticky");
-    else nav.classList.remove("sticky");
-  };
-
-  const heroObserver = new IntersectionObserver(stickyNav, {
-    root: null,
-    threshold: 0,
-    rootMargin: `-${headerHeight}px`,
-  });
-
-  heroObserver.observe(heroContainer);
-
-  // Tabbed components
-
-  tabsContainer.addEventListener("click", function (e) {
-    const clicked = e.target.closest(".operations__tab");
-
-    // Guard clause
-    if (!clicked) return;
-
-    // Remove active classes
-    tabs.forEach((tab) => tab.classList.remove("operations__tab--active"));
-    tabsContent.forEach((t) =>
-      t.classList.remove("operations__content--active")
-    );
-
-    // Activate tab
-    clicked.classList.add("operations__tab--active");
-
-    // Activate content area
-    document
-      .querySelector(`.operations__content--${clicked.dataset.tab}`)
-      .classList.add("operations__content--active");
-  });
-
-  // Reveal sections
-  const revealSection = function (entries, observer) {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-
-      entry.target.classList.remove("section--hidden");
-      observer.unobserve(entry.target);
+    siblings.forEach((el) => {
+      if (el !== link) el.style.opacity = this;
     });
-  };
+    logo.style.opacity = this;
+  }
+};
 
-  const sectionObserver = new IntersectionObserver(revealSection, {
-    root: null,
-    threshold: 0.15,
-  });
+// Passing "argument" into handler
+nav.addEventListener("mouseover", handleHover.bind(0.5));
+nav.addEventListener("mouseout", handleHover.bind(1));
 
-  allSections.forEach(function (section) {
-    sectionObserver.observe(section);
-    section.classList.add("section--hidden");
-  });
+// Sticky navigation
+const headerHeight = nav.getBoundingClientRect().height;
 
-  // lazy loading images
-  const loadImg = function (entries, observer) {
-    const [entry] = entries;
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  //   console.log(entry);
 
+  if (!entry.isIntersecting) nav.classList.add("sticky");
+  else nav.classList.remove("sticky");
+};
+
+const heroObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${headerHeight}px`,
+});
+
+heroObserver.observe(heroContainer);
+
+// Tabbed components
+
+tabsContainer.addEventListener("click", function (e) {
+  const clicked = e.target.closest(".operations__tab");
+
+  // Guard clause
+  if (!clicked) return;
+
+  // Remove active classes
+  tabs.forEach((tab) => tab.classList.remove("operations__tab--active"));
+  tabsContent.forEach((t) => t.classList.remove("operations__content--active"));
+
+  // Activate tab
+  clicked.classList.add("operations__tab--active");
+
+  // Activate content area
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add("operations__content--active");
+});
+
+// Reveal sections
+const revealSection = function (entries, observer) {
+  entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
 
-    // Replace src with data-src
-    entry.target.src = entry.target.dataset.src;
-
-    entry.target.addEventListener("load", function () {
-      entry.target.classList.remove("lazy-img");
-    });
-
+    entry.target.classList.remove("section--hidden");
     observer.unobserve(entry.target);
-  };
+  });
+};
 
-  const imgObserver = new IntersectionObserver(loadImg, {
-    root: null,
-    threshold: 0,
-    rootMargin: "200px",
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add("section--hidden");
+});
+
+// lazy loading images
+const loadImg = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  // Replace src with data-src
+  entry.target.src = entry.target.dataset.src;
+
+  entry.target.addEventListener("load", function () {
+    entry.target.classList.remove("lazy-img");
   });
 
-  imgTargets.forEach((img) => imgObserver.observe(img));
+  observer.unobserve(entry.target);
+};
 
-  // slider
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: "200px",
+});
 
-  const slider = function () {
-    let curSlide = 0;
-    const maxSlide = slides.length;
+imgTargets.forEach((img) => imgObserver.observe(img));
 
-    // Functions
-    const createDots = function () {
-      slides.forEach(function (_, i) {
-        dotContainer.insertAdjacentHTML(
-          "beforeend",
-          `<button class="dots__dot" data-slide="${i}"></button>`
-        );
-      });
-    };
+// slider
+const slider = function () {
+  let curSlide = 0;
+  const maxSlide = slides.length;
 
-    const activateDot = function (slide) {
-      document
-        .querySelectorAll(".dots__dot")
-        .forEach((dot) => dot.classList.remove("dots__dot--active"));
-
-      document
-        .querySelector(`.dots__dot[data-slide="${slide}"]`)
-        .classList.add("dots__dot--active");
-    };
-
-    const goToSlide = function (slide) {
-      slides.forEach(
-        (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+  // Functions
+  const createDots = function () {
+    slides.forEach(function (_, i) {
+      dotContainer.insertAdjacentHTML(
+        "beforeend",
+        `<button class="dots__dot" data-slide="${i}"></button>`
       );
-    };
-
-    // Next slide
-    const nextSlide = function () {
-      if (curSlide === maxSlide - 1) {
-        curSlide = 0;
-      } else {
-        curSlide++;
-      }
-
-      goToSlide(curSlide);
-      activateDot(curSlide);
-    };
-
-    const prevSlide = function () {
-      if (curSlide === 0) {
-        curSlide = maxSlide - 1;
-      } else {
-        curSlide--;
-      }
-      goToSlide(curSlide);
-      activateDot(curSlide);
-    };
-
-    // initialize everything
-    const init = function () {
-      goToSlide(0);
-      createDots();
-
-      activateDot(0);
-    };
-    init();
-
-    // Event handlers
-    btnRight.addEventListener("click", nextSlide);
-    btnLeft.addEventListener("click", prevSlide);
-
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowLeft") prevSlide();
-      e.key === "ArrowRight" && nextSlide();
-    });
-
-    dotContainer.addEventListener("click", function (e) {
-      if (e.target.classList.contains("dots__dot")) {
-        curSlide = Number(e.target.dataset.slide);
-        goToSlide(curSlide);
-        activateDot(curSlide);
-      }
     });
   };
-  slider();
-}
 
-// save to local storage
+  const activateDot = function (slide) {
+    document
+      .querySelectorAll(".dots__dot")
+      .forEach((dot) => dot.classList.remove("dots__dot--active"));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add("dots__dot--active");
+  };
+
+  const goToSlide = function (slide) {
+    slides.forEach(
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+  };
+
+  // Next slide
+  const nextSlide = function () {
+    if (curSlide === maxSlide - 1) {
+      curSlide = 0;
+    } else {
+      curSlide++;
+    }
+
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const prevSlide = function () {
+    if (curSlide === 0) {
+      curSlide = maxSlide - 1;
+    } else {
+      curSlide--;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  // initialize everything
+  const init = function () {
+    goToSlide(0);
+    createDots();
+
+    activateDot(0);
+  };
+  init();
+
+  // Event handlers
+  btnRight.addEventListener("click", nextSlide);
+  btnLeft.addEventListener("click", prevSlide);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") prevSlide();
+    e.key === "ArrowRight" && nextSlide();
+  });
+
+  dotContainer.addEventListener("click", function (e) {
+    if (e.target.classList.contains("dots__dot")) {
+      curSlide = Number(e.target.dataset.slide);
+      goToSlide(curSlide);
+      activateDot(curSlide);
+    }
+  });
+};
+slider();
+
+// save to user details local storage
 const saveDetails = function () {
   const userDetails = {
     firstName: document.getElementById("firstName").value,
@@ -307,7 +301,6 @@ const getDetails = function () {
 };
 
 // signin
-
 const validation = function (e) {
   e.preventDefault();
 
@@ -368,15 +361,7 @@ const validation = function (e) {
 
     // If signup is valid, save to local storage
     if (!modalSignIn.classList.contains("hidden") && isValid) {
-      // const userDetails = {
-      //   firstName: document.getElementById("firstName").value,
-      //   lastName: document.getElementById("lastName").value,
-      //   email: document.getElementById("email").value,
-      //   password: document.getElementById("password").value,
-      // };
-
-      // // store to local storage
-      // localStorage.setItem("userDetails", JSON.stringify(userDetails));
+      // store to local storage
       saveDetails();
       // after sign up, hide modal and show login
       modalSignIn.classList.add("hidden");
@@ -454,77 +439,3 @@ const validation = function (e) {
 };
 
 btnsForm.forEach((btn) => btn.addEventListener("click", validation));
-
-// on bank.html
-const welcomeLabel = document.querySelector(".welcome-label");
-const bankApp = document.querySelector(".app");
-const todayDate = document.querySelector(".date");
-
-const movementContainer = document.querySelector(".movements");
-
-const balanceValue = document.querySelector(".balance__value");
-
-const savedUserData = JSON.parse(localStorage.getItem("userDetails"));
-
-// Set welome with name and set opacity of the container to 1
-welcomeLabel.innerHTML = `Welcome ${savedUserData.firstName}`;
-bankApp.style.opacity = 1;
-
-// set the date
-const date = new Date();
-const day = `${new Date().getDay()}`.padStart(2, "0");
-const month = `${new Date().getMonth() + 1}`.padStart(2, "0");
-const year = new Date().getFullYear();
-const today = `${day}/${month}/${year}`;
-
-todayDate.textContent = today;
-
-// set the array of movements
-movementContainer.innerHTML = " ";
-// get data froom json
-const movData = fetch("data.json")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
-    return response.json();
-  })
-  .then((accounts) => {
-    // pick one user
-    const user = accounts[0];
-    console.log(user);
-
-    // loop through movements and update them
-    user.movements.forEach((mov, i) => {
-      const type = mov > 0 ? "deposit" : "withdrawal";
-
-      // add mov together
-      const totalMovements = user.movements.reduce((acc, mov) => {
-        return acc + mov;
-      }, 0);
-      // display in the dom
-      balanceValue.textContent = `${totalMovements.toFixed(2)} €`;
-
-      // get movement dates
-      const movDates = user.movementsDates.map(
-        (date) => new Date(date).toISOString().split("T")[0]
-      );
-      const movDate = movDates[i];
-
-      const movhtml = `
-        <div class="movements__row">
-          <div class="movements__type movements__type--${type}">${
-        i + 1
-      } ${type}</div>
-          <div class="movements__date">${movDate}</div>
-
-          <div class="movements__value">${mov}</div>
-        </div>
-`;
-      movementContainer.insertAdjacentHTML("afterbegin", movhtml);
-    });
-  })
-  .catch((error) => {
-    console.error("Error fetching data:", error);
-  });
