@@ -426,7 +426,8 @@ SLIDER
 
 .slider {
   max-width: 100rem;
-  height: 50rem;
+  min-height: 40rem;
+  height: 100%;
   margin: 0 auto;
   position: relative;
 
@@ -438,7 +439,8 @@ SLIDER
   position: absolute;
   top: 0;
   width: 100%;
-  height: 50rem;
+  min-height: 40rem;
+  height: 100%;
 
   display: flex;
   align-items: center;
@@ -882,6 +884,16 @@ COOKIE MESSAGE
   .operations__content {
     grid-template-columns: 3rem 1fr;
   }
+
+  .slider {
+    padding: 5rem 0;
+    min-height: 50rem;
+  }
+
+  .slide {
+    min-height: 50rem;
+    padding: 5rem 0;
+  }
 }
 
 /* 530px */
@@ -927,15 +939,15 @@ COOKIE MESSAGE
 
   /* general */
   .section {
-    padding: 5rem 3rem;
+    padding: 5rem 1rem;
   }
 
   .section__description {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
   }
 
   .section__header {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   /* features */
@@ -958,11 +970,45 @@ COOKIE MESSAGE
   .operations__tab.btn {
     padding: 1rem;
   }
+
+  .operations__tab {
+    font-size: 1.15rem;
+    color: #222;
+  }
   .operations__tab span {
-    margin-right: 3px;
+    margin-right: 1px;
+    font-size: 1.1rem;
+  }
+
+  .operations__header {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .operations__content p {
+    font-size: 1.2rem;
+  }
+
+  .operations__icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .operations__icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .operations__content {
+    grid-template-columns: 1rem 1fr;
   }
 
   /* slider */
+  .slider,
+  .slide {
+    min-height: 35rem;
+    padding: 0;
+  }
 
   .slider__btn {
     width: 3rem;
@@ -984,14 +1030,22 @@ COOKIE MESSAGE
   }
 
   .testimonial::before {
-    font-size: 10rem;
+    font-size: 6rem;
+    top: -1.8rem;
+    left: -1.8rem;
   }
 
   .testimonial__header {
     font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
   }
   .testimonial__text {
     font-size: 1.4rem;
+  }
+  .testimonial__author {
+    grid-template-columns: 4rem 1fr;
+    margin-left: 0;
   }
 
   .testimonial__name {
@@ -1002,8 +1056,17 @@ COOKIE MESSAGE
     font-size: 1.2rem;
   }
 
+  .testimonial__photo {
+    width: 4.5rem;
+  }
+
   /* modal */
   .modal__header {
     font-size: 2rem;
+  }
+
+  .section--sign-up .btn--show-modal {
+    font-size: 1.3rem;
+    padding: 1.3rem 1.6rem;
   }
 }

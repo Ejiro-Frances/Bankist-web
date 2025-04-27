@@ -239,6 +239,7 @@ h2 {
 .form.form--loan {
   grid-template-columns: 2.5fr 1fr 2.5fr;
 }
+
 .form__label--loan {
   grid-row: 2;
 }
@@ -303,24 +304,66 @@ h2 {
   }
 
   .app {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     gap: 1rem;
   }
 
   .balance {
-    grid-column: 1;
+    grid-column: 1 / span 3;
   }
   .movements {
-    grid-row: 5 / span 3;
+    grid-row: 3 / span 3;
+    grid-column: 1 / span 3;
   }
 
   .summary {
-    grid-row: 8/9;
+    grid-row: 6/7;
+    grid-column: 1 / span 3;
   }
 
   .summary__value {
     margin-right: 2rem;
+  }
+
+  .operation {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+  .form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .form__label {
+    grid-row: 1;
+    font-size: 0.8rem;
+  }
+  .form__btn {
+    font-size: 1rem;
+    align-self: center;
+    grid-column: 1 / span 2;
+  }
+
+  .form.form--loan {
+    grid-template-columns: 2.5fr 1fr;
+  }
+  .form--loan input {
+    grid-row: 2;
+  }
+
+  .form--loan .form__btn {
+    grid-column: 2/3;
+    grid-row: 2;
+  }
+
+  .form__input {
+    font-size: 1.2rem;
+  }
+
+  .logout-timer {
+    grid-row: 7/8;
   }
 }
 
@@ -356,5 +399,14 @@ h2 {
   .summary__value {
     font-size: 1.4rem;
     margin-right: 1rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .form__input {
+    font-size: 0.5rem;
+    padding: 0.1rem 0.4rem;
   }
 }
